@@ -1,18 +1,18 @@
+/* Существующие стили */
 html, body {
     margin: 0;
     padding: 0;
-
     font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
     font-style: normal;
-
     display: block;
     background-color: rgb(100, 39, 165);
+}
 
-    background: url("src/dota2photo2.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+#headerTitle {
+    width: 100%;
+    padding: 1px 0px;
+    background-color: rgb(72, 24, 122);
 }
 
 #title {
@@ -23,225 +23,168 @@ html, body {
     padding-left: 5%;
     font-size: 24px;
 }
-#headerTitle {
-    width: 100%;
-    padding: 1px 0px;
 
-    background-color: rgb(72, 24, 122);
-}
-
-.boost {
-    color: rgb(240, 240, 240);
-    border: 0px;
-    border-radius: 20px;
-    background-color: rgba(71, 24, 122, 0.766);
-    max-width: 200px;
-    width: 80%;
-    text-align: center;
-    padding: 0px 2%;
-
-    padding-bottom: 30px;
-    margin: 20px;
-    align-items: center;
-}
-#boostName {
-    font-weight: bold;
-    font-size: 17px;
-}
-#boostDescription {
-    font-weight: 400;
-    font-size: 12px;
-    margin: -20px 30px 0px 30px;
-    padding: 10px;
-}
-.boostPrice {
-    font-weight: bold;
-    font-size: 15px;
-}
-#boostPay {
+#boostButton {
     color: rgb(240, 240, 240);
     background: rgb(216, 45, 22);
-
     text-decoration: none;
     text-align: center;
-    padding: 5px 10px;
+    padding: 3px 10px;
     width: fit-content;
     font-weight: bold;
     border-radius: 4px;
-    border: 0px;
-    font-size: 12px;
-
+    font-size: 20px;
     margin-left: 5%;
+    animation: sizeButton 2s infinite;
 }
-#boostPay:hover {
+
+#boostButton:hover {
     text-decoration: underline;
 }
-.allBoosts {
-    display: flex;
-    flex-wrap: wrap;
 
-    justify-content: center;
-}
-#QRcodePhoto {
-    max-width: 300px;
-    width: 70%;
-
-    position: fixed;
-    inset: 0px;
-    margin: auto;
-    display: none;
-    border-radius: 10px;
-
-    opacity: 0;
-    animation: showUp 0.2s forwards;
-}
-#playerRatingNumber {
-    text-align: center;
-}
-@keyframes showUp {
+@keyframes sizeButton {
     0% {
-        opacity: 0;
+        font-size: 20px;
+    }
+    50% {
+        font-size: 22px;
     }
     100% {
-        opacity: 1;
-        display: flex;
+        font-size: 20px;
     }
 }
-@keyframes showUpNo {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        display: none;
-    }
-}
-#playerRatingRange {
-    accent-color: rgb(216, 45, 22);
-    margin-right: 10px;
-}
-.range {
-    display: flex;
+
+#dota2photo {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    justify-content: center;
+    opacity: 0.4;
 }
-.rating {
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(240, 240, 240);
-    display: grid;
-    justify-content: center;
-    text-align: center;
+
+#photoBackground {
+    width: 100%;
+    background-color: rgb(36, 9, 65);
 }
-#playerRatingInputText {
-    text-align: center;
-    font-weight: bold;
-    border-radius: 3px;
-    border: 0px;
-    font-size: 24px;
-    width: 200px;
-}
-.options {
+
+#boostText {
     color: rgb(240, 240, 240);
     font-weight: bold;
+    font-size: 25px;
     text-align: left;
-    font-size: 20px;
-    padding: 10px;
-    margin: 20px;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: fit-content;
-    width: 80%;
-
-    border: 0px;
-    border-radius: 5px;
-    background-color: rgba(71, 24, 122, 0.374);
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
-.privacyPoliticsClass {
-    color: rgb(240, 240, 240);
-    font-weight: bold;
-    text-align: center;
-    font-size: 15px;
-    padding: 5px;
-    margin: 20px;
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    max-width: 160px;
-    width: 80%;
-
-    border: 0px;
-    border-radius: 10px;
-    background-color: rgba(71, 24, 122, 0.766);
+.boostOption {
+    position: absolute;
+    top: 40px;
+    left: 2%;
 }
-#authorLink {
+
+#boostAdText {
     color: rgb(240, 240, 240);
     font-weight: bold;
     font-size: 15px;
-    text-decoration: none;
-
-    display: block;
-    text-align: center;
-
-    margin: 30px;
-
-    width: fit-content;
-    height: fit-content;
+    margin: -15px 0px 25px 5.5%;
+    width: 100%;
 }
-#authorLink:hover {
-    text-decoration: underline;
+
+#whyWe {
+    color: rgb(240, 240, 240);
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
 }
-.centerOfAuthorLink {
-    width: fit-content;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+.textWhyWe {
+    color: rgb(240, 240, 240);
+    font-weight: 500;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%; 
 }
+
 @media screen and (min-width: 800px) {
-    #authorLink {
-        font-size: 20px;
-        top: 90%;
+    .textWhyWe {
+        font-size: 30px;
     }
-    .options {
-        font-size: 24px;
-    }
-    .privacyPoliticsClass {
-        font-size: 20px;
-        max-width: fit-content;
-        width: 80%;
-    }
-    .rating {
-        font-size: 24px;
-    }
-    #QRcodePhoto {
-        max-width: 400px;
+    #whyWe {
+        font-size: 50px;
     }
     #title {
         margin: 10px 0px;
         font-size: 40px;
     }
-    .boost {
-        max-width: 400px;
+    #boostButton {
+        font-size: 40px;
     }
-    #boostName {
-        font-size: 35px;
+    @keyframes sizeButton {
+        0% {
+            font-size: 40px;
+        }
+        50% {
+            font-size: 42px;
+        }
+        100% {
+            font-size: 40px;
+        }
     }
-    #boostDescription {
+    #boostText {
+        font-size: 50px;
+    }
+    .boostOption {
+        top: 60px;
+        left: 5%;
+    }
+    #boostAdText {
         font-size: 25px;
-    }
-    .boostPrice {
-        font-size: 30px;
-    }
-    #boostPay {
-        font-size: 25px;  
+        margin: -15px 0px 50px 5.5%;
     }
 }
-/* Существующие стили */
+
+@media screen and (max-width: 380px) {
+    #whyWe {
+        font-size: 15px;
+    }
+    .textWhyWe {
+        font-size: 10px;
+    }
+    #title {
+        margin: 5px 0px;
+        font-size: 20px;
+    }
+    #boostButton {
+        font-size: 10px;
+    }
+    @keyframes sizeButton {
+        0% {
+            font-size: 10px;
+        }
+        50% {
+            font-size: 11px;
+        }
+        100% {
+            font-size: 10px;
+        }
+    }
+    #boostText {
+        font-size: 15px;
+    }
+    .boostOption {
+        top: 35px;
+        left: 2%;
+    }
+    #boostAdText {
+        font-size: 12px;
+        margin: 0px 0px 15px 5.5%;
+    }
+}
 
 /* Новые стили для контактной информации */
 .contactInfo {
@@ -249,6 +192,10 @@ html, body {
     color: rgb(240, 240, 240);
     font-size: 16px;
     margin: 20px 0;
+}
+
+.contactInfo p {
+    margin: 10px 0;
 }
 
 .contactInfo a {
