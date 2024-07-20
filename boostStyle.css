@@ -186,27 +186,3 @@ html, body {
         margin: 0px 0px 15px 5.5%;
     }
 }
-
-/* Новый блок контактов */
-.contactInfo {
-    background-color: rgb(36, 9, 65);
-    color: rgb(240, 240, 240);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.contactInfo p {
-    margin: 10px 0;
-}
-
-.contactInfo a {
-    color: rgb(216, 45, 22);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contactInfo a:hover {
-    text-decoration: underline;
-}
