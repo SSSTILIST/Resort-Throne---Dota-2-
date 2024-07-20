@@ -1,58 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="src/logo.jpg" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="indexStyle.css">
-
-    <title>Resort Throne - Буст рейтинга и аккаунтов Dota 2</title>
+    <title>Калькулятор цен на бустинг</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div id="headerTitle">
-            <p id="title">Resort Throne</p>
+    <div class="calculator">
+        <h1>Калькулятор цен на бустинг</h1>
+        <label for="playerRating">Рейтинг игрока:</label>
+        <input type="number" id="playerRating" value="1000">
+        
+        <label for="playerRatingRange">Увеличение рейтинга:</label>
+        <input type="range" id="playerRatingRange" min="100" max="5000" step="100" value="1000">
+        <span id="playerRatingValue">1000</span> ММР
+        
+        <div class="options">
+            <label>
+                <input type="checkbox" id="option1" value="1.2">
+                Доп. опция 1
+            </label>
+            <label>
+                <input type="checkbox" id="option2" value="1.3">
+                Доп. опция 2
+            </label>
         </div>
-    </header>
-
-    <main>
-        <div id="photoBackground"><img src="src/dota2photo.jpg" id="dota2photo" alt="dota 2 photo"></div>
-        <div class="boostOption">
-            <p id="boostText">САМЫЕ ВЫГОДНЫЕ<br>ПРЕДЛОЖЕНИЯ</p>
-            <p id="boostAdText">
-                🚀Поднимитесь в рейтинге Dota 2 <br> с профессиональным бустом!🚀
-            </p>
-            <a href="boost.html" id="boostButton">ХОЧУ БУСТ</a>
+        
+        <div class="prices">
+            <h2>Цена:</h2>
+            <p>Цена за бустинг: <span id="boostPrice">0₽</span></p>
+            <p>Цена за бустинг 2: <span id="boostPrice2">0₽</span></p>
+            <p>Цена за бустинг 3: <span id="boostPrice3">0₽</span></p>
+            <p>Цена за бустинг 4: <span id="boostPrice4">0₽</span></p>
+            <p>Цена за бустинг 5: <span id="boostPrice5">0₽</span></p>
+            <p>Цена за бустинг 6: <span id="boostPrice6">0₽</span></p>
         </div>
-    </main>
-
-    <footer>
-        <div>
-            <p id="whyWe">ПОЧЕМУ МЫ?</p>
-            <p class="textWhyWe">
-                Тебе надоело топтаться на месте? Хочешь рвать рейтинги и играть с топами?<br>
-                Наш сервис буста поможет тебе достичь новых высот!<br><br>
-                Почему мы:
-            </p>
-            <ul class="textWhyWe">
-                <li>🔥 Про-бустеры: Только опытные игроки</li><br>
-                <li>🔒 Безопасность: Гарантируем защиту твоего аккаунта</li><br>
-                <li>⚡ Скорость: Быстрый буст без потери качества</li><br>
-                <li>💰 Гибкие тарифы: Найдется вариант для любого бюджета</li><br>
-                <li>🛠️ Поддержка 24/7: Всегда на связи</li><br>
-                <li>🚀 Индивидуальный подход: Учитываем твои пожелания</li><br>
-                <li>🔝 100% Удовлетворение: Клиенты нас обожают!</li><br>
-            </ul>
-            <p class="textWhyWe">
-                Пора стать легендой! Заказывай буст и добивайся успеха с нами!
-            </p>
-        </div>
-    </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
