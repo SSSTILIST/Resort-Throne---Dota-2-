@@ -1,4 +1,5 @@
 /* Существующие стили */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -186,12 +187,14 @@ html, body {
     }
 }
 
-/* Новые стили для контактной информации */
+/* Новый блок контактов */
 .contactInfo {
-    text-align: center;
+    background-color: rgb(36, 9, 65);
     color: rgb(240, 240, 240);
-    font-size: 16px;
-    margin: 20px 0;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .contactInfo p {
@@ -201,6 +204,7 @@ html, body {
 .contactInfo a {
     color: rgb(216, 45, 22);
     text-decoration: none;
+    font-weight: bold;
 }
 
 .contactInfo a:hover {
