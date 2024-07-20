@@ -39,89 +39,24 @@ boostPrice4.textContent = boostPrice4.textContent + "₽";
 boostPrice5.textContent = boostPrice5.textContent + "₽";
 boostPrice6.textContent = boostPrice6.textContent + "₽";
 
-let newBoostPrice = parseFloat(boostPrice.textContent);
-let newBoostPrice2 = parseFloat(boostPrice2.textContent);
-let newBoostPrice3 = parseFloat(boostPrice3.textContent);
-let newBoostPrice4 = parseFloat(boostPrice4.textContent);
-let newBoostPrice5 = parseFloat(boostPrice5.textContent);
-let newBoostPrice6 = parseFloat(boostPrice6.textContent);
-
 playerRatingRange.oninput = updatePrices;
+
 function updatePrices() {
     playerRatingNumber.textContent = "+" + this.value;
     newPrice();
-};
-
-let options1 = document.getElementById("options1");
-let options2 = document.getElementById("options2");
-let options3 = document.getElementById("options3");
-let options4 = document.getElementById("options4");
-let options5 = document.getElementById("options5");
-let options6 = document.getElementById("options6");
-
-let maxValueOfplayerRatingInputText = 0;
-
-let optionsPlus = 1;
-
-function controll() {
-    maxValueOfplayerRatingInputText = 8000 - playerRatingInputText.value;
-    playerRatingRange.max = maxValueOfplayerRatingInputText;
-
-    optionsPlus = 1;
-    if (options1.checked == true) {
-        optionsPlus = optionsPlus + 0.3;
-    }
-    if (options2.checked == true) {
-        optionsPlus = optionsPlus + 0.05;
-    }
-    if (options3.checked == true) {
-        optionsPlus = optionsPlus + 0.1;
-    }
-    if (options4.checked == true) {
-        optionsPlus = optionsPlus + 0.1;
-    }
-    if (options5.checked == true) {
-        optionsPlus = optionsPlus + 0.2;
-    }
-    if (options6.checked == true) {
-        optionsPlus = optionsPlus + 0.5;
-    }
-    console.log(optionsPlus);
-    if (playerRatingInputText.value >= 0 && playerRatingInputText.value <= 8000) {
-        newPrice();
-    }
 }
 
-function getPricePer100MMR(mmr) {
-    if (mmr <= 2000) {
-        return 100;
-    } else if (mmr <= 3000) {
-        return 120;
-    } else if (mmr <= 4000) {
-        return 200;
-    } else if (mmr <= 5000) {
-        return 280;
-    } else if (mmr <= 6000) {
-        return 670;
-    } else {
-        return 0; // Замените на соответствующую цену для диапазонов выше 6000
-    }
+function getPriceForRating(rating) {
+    if (rating <= 2000) return 100;
+    if (rating <= 3000) return 120;
+    if (rating <= 4000) return 200;
+    if (rating <= 5000) return 280;
+    if (rating <= 6000) return 670;
+    return 0; // Можно указать цену по умолчанию, если рейтинг превышает 6000
 }
 
 function newPrice() {
-    let startMMR = parseInt(playerRatingInputText.value);
-    let endMMR = startMMR + parseInt(playerRatingRange.value);
-    let pricePer100MMR = getPricePer100MMR(startMMR);
-    let totalPrice = ((endMMR - startMMR) / 100) * pricePer100MMR * optionsPlus;
-
-    boostPrice.textContent = totalPrice.toFixed(0) + "₽";
-    boostPrice2.textContent = (totalPrice + 50).toFixed(0) + "₽";
-    boostPrice3.textContent = (totalPrice + 50).toFixed(0) + "₽";
-    boostPrice4.textContent = (totalPrice + 55).toFixed(0) + "₽";
-    boostPrice5.textContent = (totalPrice + 55).toFixed(0) + "₽";
-    boostPrice6.textContent = (totalPrice + 1800).toFixed(0) + "₽";
-}
-
-window.onload = function() {
-    newPrice();
-};
+    let rating = parseInt(playerRatingInputText.value) || 0;
+    let range = parseInt(playerRatingRange.value) || 0;
+    
+    // Общая цена за 100 ммр в зависимости от рей
