@@ -1,4 +1,4 @@
-//QRcode
+// QRcode
 let QRcodePhoto = document.getElementById("QRcodePhoto");
 let authorLink = document.getElementById("authorLink");
 
@@ -13,13 +13,11 @@ function pay() {
 document.addEventListener("click", function(event) {
     if (event.target.tagName.toLowerCase() !== "button" && event.target.tagName.toLowerCase() !== "img") {
         QRcodePhoto.style.animation = "showUpNo 0.2s forwards";
-
         authorLink.style.animation = "showUpNo 0.2s forwards";
     }
 });
 
-
-//PlayerRatings
+// PlayerRatings
 let playerRatingRange = document.getElementById("playerRatingRange");
 let playerRatingNumber = document.getElementById("playerRatingNumber");
 
@@ -94,92 +92,36 @@ function controll() {
     }
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги по бусту MMR</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+function getPricePer100MMR(mmr) {
+    if (mmr <= 2000) {
+        return 100;
+    } else if (mmr <= 3000) {
+        return 120;
+    } else if (mmr <= 4000) {
+        return 200;
+    } else if (mmr <= 5000) {
+        return 280;
+    } else if (mmr <= 6000) {
+        return 670;
+    } else {
+        return 0; // Замените на соответствующую цену для диапазонов выше 6000
+    }
+}
 
-        .services {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+function newPrice() {
+    let startMMR = parseInt(playerRatingInputText.value);
+    let endMMR = startMMR + parseInt(playerRatingRange.value);
+    let pricePer100MMR = getPricePer100MMR(startMMR);
+    let totalPrice = ((endMMR - startMMR) / 100) * pricePer100MMR * optionsPlus;
 
-        .service {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
+    boostPrice.textContent = totalPrice.toFixed(0) + "₽";
+    boostPrice2.textContent = (totalPrice + 50).toFixed(0) + "₽";
+    boostPrice3.textContent = (totalPrice + 50).toFixed(0) + "₽";
+    boostPrice4.textContent = (totalPrice + 55).toFixed(0) + "₽";
+    boostPrice5.textContent = (totalPrice + 55).toFixed(0) + "₽";
+    boostPrice6.textContent = (totalPrice + 1800).toFixed(0) + "₽";
+}
 
-        .price {
-            color: green;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="services">
-        <div class="service">
-            <h2>Буст до 2000 MMR</h2>
-            <p class="price" id="boostPrice">0₽</p>
-        </div>
-        <div class="service">
-            <h2>Буст до 3000 MMR</h2>
-            <p class="price" id="boostPrice2">0₽</p>
-        </div>
-        <!-- Другие услуги -->
-        <div class="service">
-            <h2>Буст до 4000 MMR</h2>
-            <p class="price" id="boostPrice3">0₽</p>
-        </div>
-        <div class="service">
-            <h2>Буст до 5000 MMR</h2>
-            <p class="price" id="boostPrice4">0₽</p>
-        </div>
-        <div class="service">
-            <h2>Буст до 6000 MMR</h2>
-            <p class="price" id="boostPrice5">0₽</p>
-        </div>
-        <div class="service">
-            <h2>Буст до 7000 MMR</h2>
-            <p class="price" id="boostPrice6">0₽</p>
-        </div>
-    </div>
-
-    <script>
-        function calculatePrice(baseValue, multiplier, optionsPlus, additionalCost) {
-            return (((baseValue * 1.1) + (multiplier) + 1) * optionsPlus) + additionalCost;
-        }
-
-        function newPrice() {
-            let baseValue = parseFloat(playerRatingInputText.value);
-            let rangeValue = parseFloat(playerRatingRange.value);
-            let optionsPlus = parseFloat(document.querySelector("#optionsPlus").value); // Предполагается, что есть элемент с id "optionsPlus"
-
-            let prices = [
-                { multiplier: rangeValue * 3, additionalCost: 45, elementId: 'boostPrice' },
-                { multiplier: rangeValue * 3.1, additionalCost: 50, elementId: 'boostPrice2' },
-                { multiplier: rangeValue * 3.1, additionalCost: 50, elementId: 'boostPrice3' },
-                { multiplier: rangeValue * 3.2, additionalCost: 55, elementId: 'boostPrice4' },
-                { multiplier: rangeValue * 3.2, additionalCost: 55, elementId: 'boostPrice5' },
-                { multiplier: rangeValue * 3.5, additionalCost: 1800, elementId: 'boostPrice6' }
-            ];
-
-            prices.forEach(price => {
-                let newBoostValue = calculatePrice(baseValue, price.multiplier, optionsPlus, price.additionalCost);
-                document.getElementById(price.elementId).textContent = newBoostValue.toFixed(0) + "₽";
-            });
-        }
-
-        window.onload = function() {
-            newPrice();
-        };
-    </script>
-</body>
-</html>
+window.onload = function() {
+    newPrice();
+};
