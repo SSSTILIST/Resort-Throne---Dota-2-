@@ -13,6 +13,7 @@ function pay() {
 document.addEventListener("click", function(event) {
     if (event.target.tagName.toLowerCase() !== "button" && event.target.tagName.toLowerCase() !== "img") {
         QRcodePhoto.style.animation = "showUpNo 0.2s forwards";
+
         authorLink.style.animation = "showUpNo 0.2s forwards";
     }
 });
@@ -92,34 +93,48 @@ function controll() {
     }
 }
 
-function getPricePer100MMR(mmr) {
-    if (mmr <= 2000) {
-        return 100;
-    } else if (mmr <= 3000) {
-        return 120;
-    } else if (mmr <= 4000) {
-        return 200;
-    } else if (mmr <= 5000) {
-        return 280;
-    } else if (mmr <= 6000) {
-        return 670;
-    } else {
-        return 0; // Замените на соответствующую цену для диапазонов выше 6000
-    }
-}
-
 function newPrice() {
-    let startMMR = parseInt(playerRatingInputText.value);
-    let endMMR = startMMR + parseInt(playerRatingRange.value);
-    let pricePer100MMR = getPricePer100MMR(startMMR);
-    let totalPrice = ((endMMR - startMMR) / 100) * pricePer100MMR * optionsPlus;
+    let playerRating = parseInt(playerRatingInputText.value);
+    let mmrGain = parseInt(playerRatingRange.value);
+    let basePrice = 0;
+
+    if (playerRating >= 0 && playerRating < 500) {
+        basePrice = 100;
+    } else if (playerRating >= 500 && playerRating < 1000) {
+        basePrice = 120;
+    } else if (playerRating >= 1000 && playerRating < 1500) {
+        basePrice = 120;
+    } else if (playerRating >= 1500 && playerRating < 2000) {
+        basePrice = 120;
+    } else if (playerRating >= 2000 && playerRating < 2500) {
+        basePrice = 120;
+    } else if (playerRating >= 2500 && playerRating < 3000) {
+        basePrice = 160;
+    } else if (playerRating >= 3000 && playerRating < 3500) {
+        basePrice = 200;
+    } else if (playerRating >= 3500 && playerRating < 4000) {
+        basePrice = 230;
+    } else if (playerRating >= 4000 && playerRating < 4500) {
+        basePrice = 270;
+    } else if (playerRating >= 4500 && playerRating < 5000) {
+        basePrice = 300;
+    } else if (playerRating >= 5000 && playerRating < 5500) {
+        basePrice = 350;
+    } else if (playerRating >= 5500 && playerRating < 6000) {
+        basePrice = 470;
+    } else if (playerRating >= 6000 && playerRating < 6500) {
+        basePrice = 670;
+    } else if (playerRating >= 6500 && playerRating < 7000) {
+        basePrice = 870;
+    } else if (playerRating >= 7000 && playerRating < 7500) {
+        basePrice = 1100;
+    } else if (playerRating >= 7500 && playerRating < 8000) {
+        basePrice = 1400;
+    }
+
+    let totalPrice = (basePrice / 100) * mmrGain * optionsPlus;
 
     boostPrice.textContent = totalPrice.toFixed(0) + "₽";
-    boostPrice2.textContent = (totalPrice + 50).toFixed(0) + "₽";
-    boostPrice3.textContent = (totalPrice + 50).toFixed(0) + "₽";
-    boostPrice4.textContent = (totalPrice + 55).toFixed(0) + "₽";
-    boostPrice5.textContent = (totalPrice + 55).toFixed(0) + "₽";
-    boostPrice6.textContent = (totalPrice + 1800).toFixed(0) + "₽";
 }
 
 window.onload = function() {
