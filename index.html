@@ -3,15 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="shortcut icon" href="src/logo.jpg" type="image/x-icon">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="indexStyle.css">
-
+    <link rel="stylesheet" href="src/styles.css">
     <title>Resort Throne - Буст рейтинга и аккаунтов Dota 2</title>
 </head>
 <body>
@@ -20,39 +13,42 @@
             <p id="title">Resort Throne</p>
         </div>
     </header>
-
     <main>
-        <div id="photoBackground"><img src="src/dota2photo.jpg" id="dota2photo" alt="dota 2 photo"></div>
-        <div class="boostOption">
-            <p id="boostText">САМЫЕ ВЫГОДНЫЕ<br>ПРЕДЛОЖЕНИЯ</p>
-            <p id="boostAdText">
-                🚀Поднимитесь в рейтинге Dota 2 <br> с профессиональным бустом!🚀
-            </p>
-            <a href="boost.html" id="boostButton">ХОЧУ БУСТ</a>
+        <div class="rating">
+            <p id="playerRatingText">Текущий MMP:</p>
+            <input type="number" max="8000" min="0" value="0" id="playerRatingInputText">
+            <p id="playerRatingNumber"></p>
+            <input type="range" id="playerRatingRange" min="100" max="8000" value="100">
+        </div>
+        <div class="options">
+            <input type="checkbox" id="options1">
+            <label for="options1">Выполнить быстрее 30%</label><br>
+            <input type="checkbox" id="options2">
+            <label for="options2">Выполняет 1 бустер 5%</label><br>
+            <input type="checkbox" id="options3">
+            <label for="options3">Забанить 5 героев 10%</label><br>
+            <input type="checkbox" id="options4">
+            <label for="options4">Не отключать Steam Guard 10%</label><br>
+            <input type="checkbox" id="options5">
+            <label for="options5">Не играть в определенное время 20%</label><br>
+            <input type="checkbox" id="options6">
+            <label for="options6">Дуо бустинг. Без передачи аккаунта 50%</label><br>
+        </div>
+        <div class="privacyPoliticsClass">
+            <input type="checkbox" id="privacyPolitics">
+            <label for="privacyPolitics">Соглашаюсь с политикой проекта</label>
+        </div>
+        <div class="allBoosts">
+            <img src="src/QRcode.jpg" id="QRcodePhoto" alt="QR code">
+            <img src="src/dota2photo.jpg" id="dota2photo" alt="Dota 2 photo">
+            <img src="src/dota2photo2.jpg" id="dota2photo2" alt="Dota 2 photo 2">
         </div>
     </main>
-
     <footer>
-        <div>
-            <p id="whyWe">ПОЧЕМУ МЫ?</p>
-            <p class="textWhyWe">
-                Тебе надоело топтаться на месте? Хочешь рвать рейтинги и играть с топами?<br>
-                Наш сервис буста поможет тебе достичь новых высот!<br><br>
-                Почему мы:
-            </p>
-            <ul class="textWhyWe">
-                <li>🔥 Про-бустеры: Только опытные игроки</li><br>
-                <li>🔒 Безопасность: Гарантируем защиту твоего аккаунта</li><br>
-                <li>⚡ Скорость: Быстрый буст без потери качества</li><br>
-                <li>💰 Гибкие тарифы: Найдется вариант для любого бюджета</li><br>
-                <li>🛠️ Поддержка 24/7: Всегда на связи</li><br>
-                <li>🚀 Индивидуальный подход: Учитываем твои пожелания</li><br>
-                <li>🔝 100% Удовлетворение: Клиенты нас обожают!</li><br>
-            </ul>
-            <p class="textWhyWe">
-                Пора стать легендой! Заказывай буст и добивайся успеха с нами!
-            </p>
+        <div class="centerOfAuthorLink">
+            <a href="https://web.telegram.org/a/#6020009951" id="authorLink">СВЯЗАТЬСЯ С АВТОРОМ</a>
         </div>
     </footer>
+    <script src="src/script.js"></script>
 </body>
 </html>
