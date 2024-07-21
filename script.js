@@ -111,3 +111,11 @@ function calculatePrice() {
     } else if (totalRating <= 7000) {
         price = 870;
     } else
+
+function controll() {
+    // Ваша функция контроллера
+}
+
+function pay() {
+    // Ваша функция оплаты
+}
