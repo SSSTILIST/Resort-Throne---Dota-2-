@@ -1,60 +1,90 @@
-body {
-    font-family: Arial, sans-serif;
+html, body {
     margin: 0;
     padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    background-color: rgb(100, 39, 165);
+    background: url("src/dota2photo2.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
+#title {
+    color: rgb(240, 240, 240);
+    font-weight: bold;
+    margin: 7px 0px;
+    text-align: left;
+    padding-left: 5%;
+    font-size: 24px;
 }
 
-.boost-section, .price-section {
-    margin-bottom: 20px;
-}
-
-#playerRatingRange {
+#headerTitle {
     width: 100%;
+    padding: 1px 0px;
+    background-color: rgb(72, 24, 122);
 }
 
-.options label {
-    display: block;
-    margin: 5px 0;
+.boost {
+    color: rgb(240, 240, 240);
+    border: 0;
+    border-radius: 20px;
+    background-color: rgba(71, 24, 122, 0.766);
+    max-width: 200px;
+    width: 80%;
+    text-align: center;
+    padding: 0 2%;
+    padding-bottom: 30px;
+    margin: 20px;
+    align-items: center;
 }
 
-#QRcodePhoto, #authorLink {
-    display: none;
+.boostName {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.boostDescription {
+    font-weight: 400;
+    font-size: 12px;
+    margin: -20px 30px 0 30px;
+    padding: 10px;
+}
+
+.boostPrice {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.boostPay {
+    color: rgb(240, 240, 240);
+    background: rgb(216, 45, 22);
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 10px;
+    width: fit-content;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 0;
+    font-size: 12px;
+    margin-left: 5%;
+}
+
+.boostPay:hover {
+    text-decoration: underline;
+}
+
+.allBoosts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#QRcodePhoto {
+    max-width: 300px;
+    width: 70%;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#QRcodePhoto img {
-    max-width: 100%;
-    height: auto;
-}
-
-.showUp {
-    animation: showUp 0.2s forwards;
-}
-
-.showUpNo {
-    animation: showUpNo 0.2s forwards;
-}
-
-@keyframes showUp {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes showUpNo {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(0.9); }
-}
+    inset: 0;
+    margin: auto;
+    display: none;
+    border-radius: 10px;
+    opacity: 0;
+    animation: show
