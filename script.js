@@ -1,4 +1,4 @@
-//QRcode
+// QRcode
 let QRcodePhoto = document.getElementById("QRcodePhoto");
 let authorLink = document.getElementById("authorLink");
 
@@ -13,13 +13,11 @@ function pay() {
 document.addEventListener("click", function(event) {
     if (event.target.tagName.toLowerCase() !== "button" && event.target.tagName.toLowerCase() !== "img") {
         QRcodePhoto.style.animation = "showUpNo 0.2s forwards";
-
         authorLink.style.animation = "showUpNo 0.2s forwards";
     }
 });
 
-
-//PlayerRatings
+// PlayerRatings
 let playerRatingRange = document.getElementById("playerRatingRange");
 let playerRatingNumber = document.getElementById("playerRatingNumber");
 
@@ -94,24 +92,34 @@ function controll() {
     }
 }
 
+function getPricePer100MMR(mmr) {
+    if (mmr <= 2000) {
+        return 100;
+    } else if (mmr <= 3000) {
+        return 120;
+    } else if (mmr <= 4000) {
+        return 200;
+    } else if (mmr <= 5000) {
+        return 280;
+    } else if (mmr <= 6000) {
+        return 670;
+    } else {
+        return 0; // Замените на соответствующую цену для диапазонов выше 6000
+    }
+}
+
 function newPrice() {
-    let newBoostValue = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3) + 1) * optionsPlus)) + 45;
-    boostPrice.textContent = newBoostValue.toFixed(0) + "₽";
+    let startMMR = parseInt(playerRatingInputText.value);
+    let endMMR = startMMR + parseInt(playerRatingRange.value);
+    let pricePer100MMR = getPricePer100MMR(startMMR);
+    let totalPrice = ((endMMR - startMMR) / 100) * pricePer100MMR * optionsPlus;
 
-    let newBoostValue2 = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3.1) + 1) * optionsPlus)) + 50;
-    boostPrice2.textContent = newBoostValue2.toFixed(0) + "₽";
-
-    let newBoostValue3 = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3.1) + 1) * optionsPlus)) + 50;
-    boostPrice3.textContent = newBoostValue3.toFixed(0) + "₽";
-
-    let newBoostValue4 = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3.2) + 1) * optionsPlus)) + 55;
-    boostPrice4.textContent = newBoostValue4.toFixed(0) + "₽";
-
-    let newBoostValue5 = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3.2) + 1) * optionsPlus)) + 55;
-    boostPrice5.textContent = newBoostValue5.toFixed(0) + "₽";
-
-    let newBoostValue6 = ((((playerRatingInputText.value * 1.1) + (playerRatingRange.value * 3.5) + 1) * optionsPlus)) + 1800;
-    boostPrice6.textContent = newBoostValue6.toFixed(0) + "₽";
+    boostPrice.textContent = totalPrice.toFixed(0) + "₽";
+    boostPrice2.textContent = (totalPrice + 50).toFixed(0) + "₽";
+    boostPrice3.textContent = (totalPrice + 50).toFixed(0) + "₽";
+    boostPrice4.textContent = (totalPrice + 55).toFixed(0) + "₽";
+    boostPrice5.textContent = (totalPrice + 55).toFixed(0) + "₽";
+    boostPrice6.textContent = (totalPrice + 1800).toFixed(0) + "₽";
 }
 
 window.onload = function() {
