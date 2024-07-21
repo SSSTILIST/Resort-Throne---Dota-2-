@@ -9,7 +9,7 @@ html, body {
     background-color: rgb(100, 39, 165);
 }
 
-header {
+#headerTitle {
     width: 100%;
     padding: 1px 0;
     background-color: rgb(72, 24, 122);
@@ -115,62 +115,3 @@ header {
     #title {
         margin: 10px 0;
         font-size: 40px;
-    }
-    #boostButton {
-        font-size: 40px;
-    }
-    @keyframes sizeButton {
-        0% {
-            font-size: 40px;
-        }
-        50% {
-            font-size: 42px;
-        }
-        100% {
-            font-size: 40px;
-        }
-    }
-    #boostText {
-        font-size: 50px;
-    }
-    .boostOption {
-        top: 60px;
-        left: 5%;
-    }
-    #boostAdText {
-        font-size: 25px;
-        margin: -15px 0 50px;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    #title {
-        margin: 5px 0;
-        font-size: 20px;
-    }
-    #boostButton {
-        font-size: 10px;
-    }
-    @keyframes sizeButton {
-        0% {
-            font-size: 10px;
-        }
-        50% {
-            font-size: 11px;
-        }
-        100% {
-            font-size: 10px;
-        }
-    }
-    #boostText {
-        font-size: 15px;
-    }
-    .boostOption {
-        top: 35px;
-        left: 2%;
-    }
-    #boostAdText {
-        font-size: 12px;
-        margin: 0 0 15px;
-    }
-}
