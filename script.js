@@ -1,4 +1,4 @@
-//QRcode
+// QRcode
 let QRcodePhoto = document.getElementById("QRcodePhoto");
 let authorLink = document.getElementById("authorLink");
 
@@ -13,11 +13,9 @@ function pay() {
 document.addEventListener("click", function(event) {
     if (event.target.tagName.toLowerCase() !== "button" && event.target.tagName.toLowerCase() !== "img") {
         QRcodePhoto.style.animation = "showUpNo 0.2s forwards";
-
         authorLink.style.animation = "showUpNo 0.2s forwards";
     }
 });
-
 
 // PlayerRatings
 let playerRatingRange = document.getElementById("playerRatingRange");
