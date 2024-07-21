@@ -1,3 +1,4 @@
+/* Общие стили для всего документа */
 html, body {
     margin: 0;
     padding: 0;
@@ -8,21 +9,24 @@ html, body {
     background-size: cover;
 }
 
+/* Стили для заголовка */
 #title {
     color: rgb(240, 240, 240);
     font-weight: bold;
-    margin: 7px 0px;
+    margin: 7px 0;
     text-align: left;
     padding-left: 5%;
     font-size: 24px;
 }
 
+/* Стили для контейнера заголовка */
 #headerTitle {
     width: 100%;
-    padding: 1px 0px;
+    padding: 1px 0;
     background-color: rgb(72, 24, 122);
 }
 
+/* Стили для блока буста */
 .boost {
     color: rgb(240, 240, 240);
     border: 0;
@@ -37,11 +41,13 @@ html, body {
     align-items: center;
 }
 
+/* Стили для названия буста */
 .boostName {
     font-weight: bold;
     font-size: 17px;
 }
 
+/* Стили для описания буста */
 .boostDescription {
     font-weight: 400;
     font-size: 12px;
@@ -49,11 +55,13 @@ html, body {
     padding: 10px;
 }
 
+/* Стили для цены буста */
 .boostPrice {
     font-weight: bold;
     font-size: 15px;
 }
 
+/* Стили для кнопки оплаты буста */
 .boostPay {
     color: rgb(240, 240, 240);
     background: rgb(216, 45, 22);
@@ -72,12 +80,14 @@ html, body {
     text-decoration: underline;
 }
 
+/* Контейнер для всех бустов */
 .allBoosts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/* Стили для QR-кода */
 #QRcodePhoto {
     max-width: 300px;
     width: 70%;
@@ -87,4 +97,53 @@ html, body {
     display: none;
     border-radius: 10px;
     opacity: 0;
-    animation: show
+    animation: showUp 0.2s forwards;
+}
+
+/* Стили для ссылки автора */
+#authorLink {
+    display: none;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Анимация появления */
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Анимация исчезновения */
+@keyframes showUpNo {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* Стили для элементов, которые будут отображаться при активации */
+.showUp {
+    animation: showUp 0.2s forwards;
+}
+
+.showUpNo {
+    animation: showUpNo 0.2s forwards;
+}
